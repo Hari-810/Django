@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <style>
+        /* Style the <body> element */
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+                margin: 0;
+                padding: 0;
+            }
+            
+            /* Style the <h1> element */
+            h1 {
+                text-align: center;
+                color: #333;
+            }
+            
+            /* Style the <form> element */
+            form {
+                max-width: 400px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                border-radius: 5px;
+            }
+            
+            /* Style the <select> element */
+            select {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+            
+            /* Style the checkboxes */
+            input[type="checkbox"] {
+                margin-bottom: 10px;
+            }
+            
+            /* Style the submit button */
+            input[type="submit"] {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            
+            /* Style the submit button on hover */
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+            
+    </style>
+</head>
+<body>
+    <h1>Password Generator</h1>
+    <form action="{% url 'password' %}">
+        <select name="length">
+            <option value="06">06 characters</option>
+            <option value="07">07 characters</option>
+            <option value="08">08 characters</option>
+            <option value="09">09 characters</option>
+            <option value="10">10 characters</option>
+            <option value="12" selected="selected">12 characters</option>
+            <option value="15">15 characters</option>
+            <option value="20">20 characters</option>
+            <option value="30">30 characters</option>
+            <option value="40">40 characters</option>
+        </select>
+        <br>
+        <input type="checkbox" name="uppercase">Uppercase
+        <br>
+        <input type="checkbox" name="numbers">Numbers
+        <br>
+        <input type="checkbox" name="special_characters">Special characters
+        <br>
+        <input type="submit" value="Genertae password">
+
+    </form>
+</body>
+</html>
