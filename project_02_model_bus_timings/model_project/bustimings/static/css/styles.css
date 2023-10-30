@@ -1,0 +1,30 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+}
+
+.timings-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.timings-table th,
+.timings-table td {
+    border: 1px solid #d82d2d;
+    padding: 8px;
+    text-align: left;
+}
+
+.timings-table th {
+    background-color: #c7eb5b;
+}
+
+.timings-table tr:nth-child(even) {
+    background-color: hsl(237, 24%, 85%);
+}

@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bus Timings</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1 style="text-align: center">Bus Timings</h1>
+    <table class="timings-table">
+        <thead>
+            <tr>
+                <th>Bus Name</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+                <th>Origin</th>
+                <th>Destination</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for timing in timings %}
+            <tr>
+                <td>{{ timing.bus_name }}</td>
+                <td>{{ timing.departure_time }}</td>
+                <td>{{ timing.arrival_time }}</td>
+                <td>{{ timing.origin }}</td>
+                <td>{{ timing.destination }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

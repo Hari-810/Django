@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bus Timing Form</title>
+    <style>
+        /* Your existing CSS styles here */
+
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="time"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-container button[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .form-container button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .search-tab {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .search-tab a {
+            text-decoration: none;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .search-tab a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Add Bus Timing</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="bus_name">Bus Name:</label>
+            <input type="text" id="bus_name" name="bus_name" required>
+            <label for="departure_time">Departure Time:</label>
+            <input type="time" id="departure_time" name="departure_time" required>
+            <label for="arrival_time">Arrival Time:</label>
+            <input type="time" id="arrival_time" name="arrival_time" required>
+            <label for="origin">Origin:</label>
+            <input type="text" id="origin" name="origin" required>
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="search-tab">
+            <p>Want to search for bus timings?</p>
+            <a href="{% url 'search_bus' %}">Go to Bus Search</a>
+        </div>
+    </div>
+</body>
+</html>

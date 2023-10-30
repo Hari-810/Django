@@ -1,0 +1,18 @@
+curl commands for all CRUD (Create, Read, Update, Delete) operations for the REST API endpoints.
+note: run all these in commnad promot
+
+GET - Retrieve a List of Tasks:
+    curl -X GET http://localhost:8000/api/tasks/
+
+GET - Retrieve a Specific Task by ID (Replace 1 with the desired task ID):
+    curl -X GET http://localhost:8000/api/tasks/1/
+
+POST - Create a New Task:
+    curl -X POST -H "Content-Type: application/json" -d "{\"title\":\"New Task\", \"description\":\"Task description\"}" http://localhost:8000/api/tasks/
+
+PUT - Update an Existing Task by ID (Replace 1 with the desired task ID):
+    curl -X PUT -H "Content-Type: application/json" -d "{\"title\":\"Updated Task\", \"description\":\"Updated description\"}" http://localhost:8000/api/tasks/1/
+
+DELETE - Delete a Specific Task by ID (Replace 1 with the desired task ID):
+    curl -X DELETE http://localhost:8000/api/tasks/1/
+

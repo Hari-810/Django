@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bus Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        h3 {
+            margin-top: 20px;
+            color: #333;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h2  style="text-align: center">Search Bus Timings</h2>
+    <form method="get" action="{% url 'search_bus' %}">
+        <label for="bus_name">Enter Bus Name:</label>
+        <input type="text" id="bus_name" name="bus_name" placeholder="Enter Bus Name" required>
+        <button type="submit">Search</button>
+    </form>
+    <h3>Search Results:</h3>
+    <ul>
+        {% for timing in bus_timings %}
+            <li>Bus Name: {{ timing.bus_name }}  <br><br> Departure: {{ timing.departure_time }} - Arrival: {{ timing.arrival_time }} <br><br> 
+                From: {{ timing.origin }} &#x2192;  To: {{ timing.destination }}</li>
+            
+        {% empty %}
+            <li>No bus timings found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
