@@ -1,1 +1,4 @@
 django_venv
+password_generator
+*.pyc
+__pycache__/
